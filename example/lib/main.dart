@@ -38,14 +38,8 @@ class _FlutterBlueAppState extends State<FlutterBlueApp> {
   @override
   void initState() {
     super.initState();
-    // Immediately get the state of FlutterBlue
-    _flutterBlue.state.then((s) {
-      setState(() {
-        state = s;
-      });
-    });
     // Subscribe to state changes
-    _stateSubscription = _flutterBlue.onStateChanged().listen((s) {
+    _stateSubscription = _flutterBlue.state.listen((s) {
       setState(() {
         state = s;
       });
@@ -55,6 +49,7 @@ class _FlutterBlueAppState extends State<FlutterBlueApp> {
   @override
   void dispose() {
     _stateSubscription?.cancel();
+    _stateSubscription.cancel();
     _stateSubscription = null;
     _scanSubscription?.cancel();
     _scanSubscription = null;
@@ -69,6 +64,7 @@ class _FlutterBlueAppState extends State<FlutterBlueApp> {
 
   _startScan() {
     print("Scanning now");
+//    flutterBlueBeacon.scan(timeout: const Duration(seconds: 20)).listen(onData)
     _scanSubscription = flutterBlueBeacon
         .scan(timeout: const Duration(seconds: 20))
         .listen((beacon) {
