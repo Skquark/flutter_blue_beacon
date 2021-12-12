@@ -6,7 +6,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
-import 'package:flutter_blue_beacon_example/widgets.dart';
+import './widgets.dart';
 import 'package:flutter_blue_beacon/flutter_blue_beacon.dart';
 
 void main() {
@@ -65,12 +65,9 @@ class _FlutterBlueAppState extends State<FlutterBlueApp> {
   _startScan() {
     print("Scanning now");
 //    flutterBlueBeacon.scan(timeout: const Duration(seconds: 20)).listen(onData)
-    _scanSubscription = flutterBlueBeacon
-        .scan(timeout: const Duration(seconds: 20))
-        .listen((beacon) {
+    _scanSubscription = flutterBlueBeacon.scan(timeout: const Duration(seconds: 20)).listen((beacon) {
       print('localName: ${beacon.scanResult.advertisementData.localName}');
-      print(
-          'manufacturerData: ${beacon.scanResult.advertisementData.manufacturerData}');
+      print('manufacturerData: ${beacon.scanResult.advertisementData.manufacturerData}');
       print('serviceData: ${beacon.scanResult.advertisementData.serviceData}');
       setState(() {
         beacons[beacon.hash] = beacon;
@@ -102,8 +99,7 @@ class _FlutterBlueAppState extends State<FlutterBlueApp> {
         backgroundColor: Colors.red,
       );
     } else {
-      return new FloatingActionButton(
-          child: new Icon(Icons.search), onPressed: _startScan);
+      return new FloatingActionButton(child: new Icon(Icons.search), onPressed: _startScan);
     }
   }
 
@@ -128,11 +124,11 @@ class _FlutterBlueAppState extends State<FlutterBlueApp> {
       child: new ListTile(
         title: new Text(
           'Bluetooth adapter is ${state.toString().substring(15)}',
-          style: Theme.of(context).primaryTextTheme.subhead,
+          style: Theme.of(context).primaryTextTheme.subtitle2,
         ),
         trailing: new Icon(
           Icons.error,
-          color: Theme.of(context).primaryTextTheme.subhead.color,
+          color: Theme.of(context).primaryTextTheme.subtitle2.color,
         ),
       ),
     );
@@ -155,9 +151,7 @@ class _FlutterBlueAppState extends State<FlutterBlueApp> {
       home: new Scaffold(
         appBar: new AppBar(
           title: const Text('FlutterBlueBeacon Example'),
-          actions: <Widget>[
-            IconButton(icon: Icon(Icons.clear), onPressed: _clearAllBeacons)
-          ],
+          actions: <Widget>[IconButton(icon: Icon(Icons.clear), onPressed: _clearAllBeacons)],
         ),
         floatingActionButton: _buildScanningButton(),
         body: new Stack(

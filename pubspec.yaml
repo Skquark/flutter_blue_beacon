@@ -5,13 +5,14 @@ author: Michael Lee <ckmichael8@gmail.com>
 homepage: https://github.com/michaellee8/flutter_blue_beacon
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_blue: ^0.8.0
-  quiver: '>=2.0.0 <4.0.0'
+  quiver: ^3.0.1+1
+  #quiver: '>=2.0.0 <4.0.0'
 
 dev_dependencies:
   flutter_test:
