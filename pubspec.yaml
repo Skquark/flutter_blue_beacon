@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_blue: #^0.8.0
-    git: https://github.com/pulselabs-ai/fork_flutter_blue.git
+    git: https://github.com/favechua/flutter_blue.git
   quiver: ^3.0.1+1
   #quiver: '>=2.0.0 <4.0.0'
 
