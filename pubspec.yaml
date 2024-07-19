@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_blue: #^0.8.0
-    git: https://github.com/corecode/flutter_blue.git
+    git: https://github.com/wearnotch/flutter_blue.git
   quiver: ^3.0.1+1
   #quiver: '>=2.0.0 <4.0.0'
 
