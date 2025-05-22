@@ -1,8 +1,8 @@
 name: flutter_blue_beacon
 description: A Eddystone and iBeacon implementation native to flutter using the flutter_blue plugin.
 version: 0.0.2
-author: Michael Lee <ckmichael8@gmail.com>
 homepage: https://github.com/michaellee8/flutter_blue_beacon
+publish_to: none
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
